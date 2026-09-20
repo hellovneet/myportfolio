@@ -1,0 +1,337 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #05080d;
+  --panel: #0a1119;
+  --panel2: #0d1620;
+  --text: #f2f7fb;
+  --muted: #8d9aaa;
+  --line: rgba(255, 255, 255, 0.1);
+  --accent: #7de2ff;
+  --accent2: #a98cff;
+  --warm: #ff9f5a;
+  --shadow: 0 30px 90px rgba(0, 0, 0, 0.38);
+}
+
+body.light {
+  --bg: #eef5f8;
+  --panel: #ffffff;
+  --panel2: #eaf2f5;
+  --text: #071018;
+  --muted: #53616d;
+  --line: rgba(7, 16, 24, 0.12);
+  --shadow: 0 25px 70px rgba(22, 50, 65, 0.15);
+}
+
+/* Light Theme Card and Border Polish */
+body.light .border-white\/10 {
+  border-color: rgba(7, 16, 24, 0.09);
+}
+
+body.light .border-white\/15 {
+  border-color: rgba(7, 16, 24, 0.12);
+}
+
+body.light .border-white\/20 {
+  border-color: rgba(7, 16, 24, 0.16);
+}
+
+body.light .bg-white\/\[0\.04\],
+body.light .bg-white\/\[0\.035\],
+body.light .bg-white\/\[0\.02\],
+body.light .bg-white\/\[0\.015\],
+body.light .bg-white\/\[0\.01\] {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+body.light .bg-gradient-to-br.from-white\/\[0\.035\],
+body.light .bg-gradient-to-br.from-white\/\[0\.04\],
+body.light .bg-gradient-to-br.from-white\/\[0\.045\] {
+  --tw-gradient-from: rgba(255, 255, 255, 0.96);
+  --tw-gradient-to: rgba(243, 248, 251, 0.75);
+  box-shadow: 0 10px 30px rgba(15, 30, 45, 0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+              color 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Universal Smooth Cross-Fade during Theme Transition */
+html.theme-transitioning,
+html.theme-transitioning body,
+html.theme-transitioning header,
+html.theme-transitioning main,
+html.theme-transitioning footer,
+html.theme-transitioning section,
+html.theme-transitioning article,
+html.theme-transitioning div,
+html.theme-transitioning button,
+html.theme-transitioning span,
+html.theme-transitioning p,
+html.theme-transitioning h1,
+html.theme-transitioning h2,
+html.theme-transitioning h3,
+html.theme-transitioning input,
+html.theme-transitioning a {
+  transition: background-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              background 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              border-color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              color 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              fill 420ms cubic-bezier(0.22, 1, 0.36, 1),
+              stroke 420ms cubic-bezier(0.22, 1, 0.36, 1) !important;
+}
+
+/* Browser View Transition API Native Cross-Fade Animation */
+::view-transition-group(root) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+::view-transition-old(root) {
+  animation: 400ms cubic-bezier(0.22, 1, 0.36, 1) both theme-fade-out;
+}
+
+::view-transition-new(root) {
+  animation: 400ms cubic-bezier(0.22, 1, 0.36, 1) both theme-fade-in;
+}
+
+@keyframes theme-fade-out {
+  from {
+    opacity: 1;
+    filter: brightness(1);
+  }
+  to {
+    opacity: 0;
+    filter: brightness(1.02);
+  }
+}
+
+@keyframes theme-fade-in {
+  from {
+    opacity: 0;
+    filter: brightness(0.98);
+  }
+  to {
+    opacity: 1;
+    filter: brightness(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(root),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none !important;
+  }
+  html.theme-transitioning,
+  html.theme-transitioning * {
+    transition: none !important;
+  }
+}
+
+.font-mono-custom {
+  font-family: 'DM Mono', monospace;
+}
+
+.font-display {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Background noise texture */
+.noise {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.045'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  opacity: 0.55;
+}
+
+/* Cursor glow */
+.cursor-glow {
+  position: fixed;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle, rgba(125, 226, 255, 0.12), transparent 65%);
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease;
+}
+
+/* Perspective Grid */
+.visual-grid {
+  position: absolute;
+  inset: -30%;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.055) 1px, transparent 1px);
+  background-size: 46px 46px;
+  transform: perspective(600px) rotateX(62deg) translateY(30%);
+  opacity: 0.55;
+}
+
+/* Spin animation */
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 24s linear infinite;
+}
+
+.animate-spin-reverse {
+  animation: spin-slow 18s linear infinite reverse;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 28s linear infinite;
+}
+
+/* Floating Badges Keyframes */
+@keyframes float-slow {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(0.5deg);
+  }
+}
+
+@keyframes float-delayed {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(9px) rotate(-0.5deg);
+  }
+}
+
+.animate-float-slow {
+  animation: float-slow 6s ease-in-out infinite;
+}
+
+.animate-float-delayed {
+  animation: float-delayed 7.5s ease-in-out infinite;
+}
+
+/* Scanline Sweep for Smart Mirror & Vision */
+@keyframes scanline-sweep {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(280%);
+    opacity: 0;
+  }
+}
+
+.animate-scanline {
+  animation: scanline-sweep 3.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Radar Sweep */
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar {
+  animation: radar-sweep 4s linear infinite;
+  transform-origin: center center;
+}
+
+/* Dash Flow for Circuit & Power Cables */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -40;
+  }
+}
+
+.animate-dash-flow {
+  stroke-dasharray: 6, 6;
+  animation: dash-flow 1.8s linear infinite;
+}
+
+/* Oscilloscope / Sine wave flow */
+@keyframes wave-flow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-wave-flow {
+  animation: wave-flow 4s linear infinite;
+}
+
+/* Pulse Ripple */
+@keyframes ping-slow {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.8;
+  }
+  80%, 100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+.animate-ping-slow {
+  animation: ping-slow 2.4s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+/* Quantum Superposition Orbit */
+@keyframes bloch-orbit {
+  0% {
+    transform: rotate3d(1, 1, 0.5, 0deg);
+  }
+  100% {
+    transform: rotate3d(1, 1, 0.5, 360deg);
+  }
+}
+
+.animate-bloch-orbit {
+  animation: bloch-orbit 14s linear infinite;
+  transform-style: preserve-3d;
+}
