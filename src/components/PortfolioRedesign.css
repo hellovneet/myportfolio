@@ -9,3 +9,33 @@
 .hv-project-content>a:focus-visible,.hv-links a:focus-visible,.hv-button:focus-visible,.hv-text-link:focus-visible{outline:2px solid var(--orange);outline-offset:4px}
 .hv-portfolio img{max-width:100%}
 @media(max-width:380px){.hv-project-top{font-size:8px}.hv-project-visual{margin:0 8px}.hv-project-content{padding:20px 16px}.hv-skill-grid div{font-size:10px;gap:6px}}
+
+/* Design refresh: bold editorial layout, cleaner card system and a more intentional portrait frame. */
+.hv-portfolio{--orange:#e9683b;--cream:#f4efe6;--ink:#171714;background:var(--cream)}
+.hv-nav{height:76px;padding-inline:6%;border-bottom:1px solid #17171424}
+.hv-brand{font-size:27px;letter-spacing:-1.8px}
+.hv-hero{padding:64px 7% 56px;min-height:600px;grid-template-columns:1.05fr .95fr;gap:6%}
+.hv-hero h1{font-size:clamp(54px,6.7vw,94px);line-height:.94;letter-spacing:-5.8px;margin:25px 0}
+.hv-intro{font-size:15px;max-width:430px}
+.hv-portrait-wrap{max-width:470px;min-height:500px;background:#e6d9c8;overflow:hidden;border-radius:48% 48% 8px 8px}
+.hv-portrait-halo{inset:0;width:100%;height:100%;border-radius:0;background:linear-gradient(145deg,#e8c8ac,#f0e4d5 60%,#d9c8b4)}
+.hv-portrait{width:86%;height:430px;object-fit:cover;object-position:center 18%;border-radius:48% 48% 0 0;mix-blend-mode:normal;align-self:flex-end;filter:none}
+.hv-orbit-one{top:14%;left:0}.hv-orbit-two{right:-1%;top:48%}
+.hv-sticker{right:0;bottom:10%;transform:rotate(3deg)}
+.hv-hero-meta{margin-top:42px}
+.hv-work{padding:88px 7% 80px}
+.hv-section-head{margin-bottom:38px}
+.hv-project-grid{gap:16px}
+.hv-project{border-radius:3px;background:#22231f}
+.hv-project-visual{height:245px;margin:0;border-radius:0}
+.hv-project-top{padding:17px 20px}
+.hv-project-content{padding:24px 22px 23px}
+.hv-project-content h3{font-size:27px}
+.hv-project-content p{font-size:13px;line-height:1.75}
+.hv-tags span{border-radius:2px}
+.hv-about{padding:90px 7%;grid-template-columns:.45fr 1.2fr .8fr;gap:35px}
+.hv-stack{padding:75px 7%}
+.hv-contact{padding:82px 7%;background:#e9ded0}
+.hv-footer{padding-inline:6%}
+@media(max-width:900px){.hv-hero{padding:55px 6%;grid-template-columns:1fr .9fr;gap:3%}.hv-portrait-wrap{min-height:390px}.hv-portrait{height:330px}.hv-hero h1{font-size:clamp(48px,7vw,72px);letter-spacing:-3.8px}.hv-about{grid-template-columns:1fr 1.5fr;gap:25px}}
+@media(max-width:620px){.hv-hero{grid-template-columns:1fr;padding:45px 6% 38px}.hv-hero h1{font-size:clamp(50px,13vw,72px);letter-spacing:-3.4px}.hv-portrait-wrap{min-height:350px;max-width:360px;margin:0 auto;width:100%}.hv-portrait{height:300px}.hv-work{padding:60px 5%}.hv-project-visual{height:210px}.hv-about{grid-template-columns:1fr;padding:60px 6%}.hv-contact{padding:60px 6%}}
