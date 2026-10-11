@@ -45,3 +45,60 @@
  .hv-project-grid{grid-template-columns:1fr}
  .hv-project-visual{min-height:220px}
 }
+
+
+/* Final polish: stronger reference hierarchy, responsive editorial details */
+.hv-portfolio{--orange:#f06b3e;--paper:#f4f0e8;--ink:#171815}
+.hv-nav{position:relative;z-index:30}
+.hv-brand{font-size:27px;letter-spacing:-2px}
+.hv-links{gap:clamp(18px,2.5vw,38px)}
+.hv-hero{position:relative;isolation:isolate}
+.hv-hero:before{content:"";position:absolute;z-index:-1;right:0;top:8%;width:43%;height:76%;background:#eee7dc}
+.hv-hero-copy{position:relative;z-index:2}
+.hv-hero h1{max-width:720px;text-wrap:balance}
+.hv-hero h1 em{position:relative;display:inline-block}
+.hv-hero h1 em:after{content:"";position:absolute;left:3px;right:5%;bottom:-7px;height:5px;background:var(--orange);transform:rotate(-1.5deg)}
+.hv-portrait-wrap{box-shadow:14px 14px 0 #d8c8b6}
+.hv-portrait-ring{border-width:1px;border-color:#fff9}
+.hv-portrait-label{background:#f4f0e8e8;padding:9px 10px;bottom:0;left:0;right:0}
+.hv-portrait-foot{padding-top:20px}
+.hv-ticker{position:relative}
+.hv-project{overflow:hidden}
+.hv-project-visual{transition:filter .3s ease}
+.hv-project:hover .hv-project-visual{filter:saturate(1.12)}
+.hv-project-mark{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.hv-project:hover .hv-project-mark{transform:scale(1.07) rotate(-3deg)}
+.hv-project-title h3{transition:color .2s ease}
+.hv-project:hover .hv-project-title h3{color:#ff9467}
+.hv-project-content{padding:24px 22px 21px}
+.hv-tags span{border-radius:999px;padding:7px 10px}
+.hv-work-footer a{border-bottom:1px solid var(--orange);padding-bottom:5px}
+.hv-about-copy{max-width:540px}
+.hv-about-symbol{font-size:clamp(85px,9vw,125px)}
+.hv-skill-grid div{transition:background .2s ease,color .2s ease}
+.hv-skill-grid div:hover{background:#f06b3e;color:#171815}
+.hv-skill-grid div:hover span,.hv-skill-grid div:hover b{color:#171815}
+.hv-contact{position:relative;overflow:hidden}
+.hv-contact:after{content:"↗";position:absolute;right:5%;top:4%;font:400 clamp(100px,18vw,240px)/1 'Space Grotesk';color:#17181508;pointer-events:none}
+.hv-contact h2,.hv-contact-bottom,.hv-contact-label{position:relative;z-index:1}
+@media(min-width:1200px){
+ .hv-hero{padding-top:62px;padding-bottom:54px;min-height:730px}
+ .hv-portrait-wrap{min-height:550px}
+ .hv-portrait{height:500px}
+ .hv-project-visual{height:255px}
+ .hv-work{padding-top:105px}
+}
+@media(max-width:950px){
+ .hv-hero:before{width:40%;height:67%;top:11%}
+ .hv-portrait-wrap{box-shadow:9px 9px 0 #d8c8b6}
+ .hv-project-content{padding:21px 18px}
+}
+@media(max-width:640px){
+ .hv-hero:before{top:auto;bottom:4%;width:85%;height:38%;right:0}
+ .hv-hero h1 em:after{height:4px;bottom:-4px}
+ .hv-portrait-wrap{box-shadow:8px 8px 0 #d8c8b6;min-height:410px}
+ .hv-portrait{height:370px;width:88%}
+ .hv-portrait-label{font-size:7px}
+ .hv-project-content{padding:20px 17px}
+ .hv-contact:after{right:2%;top:1%;font-size:125px}
+}
